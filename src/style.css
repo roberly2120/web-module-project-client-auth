@@ -3,10 +3,33 @@
 html, body, #root {
     margin: 0px;
     height: 100%;
-    background: #eeeeee;
+    background: white;
     font-family: Lato;
+    width: 90%;
 }
 
 label {
     display:block;
+}
+.App header {
+    display: flex;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: black;
+
+}
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+
 }
