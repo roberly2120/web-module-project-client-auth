@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 import Login from './components/Login';
+import AddFriend from './components/AddFriend';
+import Friendslist from './components/Friendslist';
+import Logout from './components/Logout';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -15,7 +19,7 @@ function App() {
             <Link to='/login'>LOGIN.</Link>
           </li>
           <li>
-            <Link to='/friendlist'>FRIENDS LIST</Link>
+            <Link to='/friendslist'>FRIENDS LIST</Link>
           </li>
           <li>
             <Link to='/addfriend'>ADD FRIEND</Link>
@@ -26,8 +30,17 @@ function App() {
         </ul>
       </header>
       <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Login />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/' element={<Login />} />
+        <Route exact path='/addfriend' element={
+          <PrivateRoute>
+            <AddFriend />
+          </PrivateRoute>}/>
+        <Route exact path='/friendslist' element={
+          <PrivateRoute>
+            <Friendslist />
+          </PrivateRoute>}/>
+        <Route exact path='/logout' element={<Logout />} />
       </Routes>
     </div>
   );
